@@ -1,5 +1,5 @@
-const { makeExecutableSchema } = require('graphql-tools');
-const { graphql } = require('graphql');
+import { makeExecutableSchema } from 'graphql-tools';
+import { graphql } from 'graphql';
 
 const typeDefs = `
 schema {

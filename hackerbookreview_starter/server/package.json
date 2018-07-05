@@ -7,12 +7,9 @@
     "dev": "nodemon ./src/server.js --watch . --exec babel-node",
     "createdb": "createdb hackerbook",
     "dropdb": "dropdb hackerbook",
-    "createschema":
-      "psql postgres://localhost:5432/hackerbook -f ./database/schema.sql",
-    "dropschema":
-      "psql postgres://localhost:5432/hackerbook -f ./database/drop_schema.sql",
-    "loaddata":
-      "psql postgres://localhost:5432/hackerbook -f ./database/load_data.sql",
+    "createschema": "psql postgres://localhost:5432/hackerbook -f ./database/schema.sql",
+    "dropschema": "psql postgres://localhost:5432/hackerbook -f ./database/drop_schema.sql",
+    "loaddata": "psql postgres://localhost:5432/hackerbook -f ./database/load_data.sql",
     "initdb": "npm run createdb && npm run createschema && npm run loaddata"
   },
   "keywords": [],
