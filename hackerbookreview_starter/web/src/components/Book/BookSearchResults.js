@@ -3,11 +3,11 @@ import * as R from 'ramda';
 import { truncate } from '../../util';
 
 const BookSearchResult = props => {
-  const { thumbnailUrl, id, title, description, authors = [], addBook } = props;
+  const { imageUrl, id, title, description, authors = [], addBook } = props;
   return (
     <li className="pv2 cf bb b--black-10">
       <div className="fl">
-        <img alt="book cover" className="w4" src={thumbnailUrl} />
+        <img alt="book cover" className="w4" src={imageUrl} />
       </div>
       <div className="fl pl2">
         <h2 className="fw3 mv0 truncate f2">{title}</h2>

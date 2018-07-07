@@ -5,15 +5,15 @@ import Review from './Review';
 
 const RecentReview = ({ review }) => {
   const { id, comment, rating, title } = review;
-  const { name } = review.person;
-  const { id: bookId, thumbnailUrl } = review.book;
+  const { name } = review.user;
+  const { id: bookId, imageUrl } = review.book;
   return (
     <div className="cf mb2">
       <Link
         to={`/book/${bookId}#comment-${id}`}
         className="pointer no-underline link black-80"
       >
-        <img alt="book cover" className="mw2 fl" src={thumbnailUrl} />
+        <img alt="book cover" className="mw2 fl" src={imageUrl} />
         <div className="w-80 fl ml1">
           <h5 className="mv0 fl fw5 truncate w-100">{title}</h5>
           <div className="mv0 fl truncate w-100 f6 lh-copy">

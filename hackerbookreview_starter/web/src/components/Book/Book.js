@@ -4,7 +4,7 @@ import * as R from 'ramda';
 const Book = props => {
   const { book } = props;
   if (!book) return null;
-  const { title, description, thumbnailUrl } = book;
+  const { title, description, imageUrl } = book;
   const authors = R.pipe(
     R.pathOr([], ['authors']),
     R.map(R.prop('name')),
@@ -12,7 +12,7 @@ const Book = props => {
   )(book);
   return (
     <div className="cf">
-      <img className="fl w5" src={thumbnailUrl} alt="book cover" />
+      <img className="fl w5" src={imageUrl} alt="book cover" />
       <div className="ml2 w-70 fl">
         <h2 className="fw3 mt0 mb2 truncate f2 w-100">{title}</h2>
         <h4 className="mv2 fw3 f3 w-100">{authors}</h4>

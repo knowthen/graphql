@@ -13,7 +13,7 @@ class Home extends Component {
       R.keys,
       R.head,
     )(SORT_BY),
-    errors: null,
+    errors: [],
   };
   componentDidMount() {
     this.loadData();
@@ -24,7 +24,13 @@ class Home extends Component {
       const books = data.books;
       const reviews = data.reviews;
       const errors = [];
-      this.setState({ books, reviews, ...(errors ? { errors } : {}) });
+      // eslint-disable-next-line
+      const { orderBy } = this.state;
+      this.setState({
+        books,
+        reviews,
+        errors,
+      });
     } catch (err) {
       this.setState({ errors: [err.message] });
     }

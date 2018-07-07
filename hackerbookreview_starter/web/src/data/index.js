@@ -6,7 +6,7 @@ export default {
       rating: 5,
       comment:
         'A must-read for any entrepreneur who wants to make a difference.',
-      person: {
+      user: {
         name: 'jane',
       },
       book: {
@@ -15,7 +15,7 @@ export default {
         description:
           'The billionaire Silicon Valley entrepreneur behind such companies as PayPal and Facebook outlines an innovative theory and formula for building the companies of the future by creating and monopolizing new markets instead of competing in old ones. 200,000 first printing.',
         rating: 5,
-        thumbnailUrl:
+        imageUrl:
           '//books.google.com/books/content?printsec=frontcover&img=1&edge=curl&source=gbs_api&zoom=1&id=POOJDQAAQBAJ',
       },
     },
@@ -25,7 +25,7 @@ export default {
       rating: 5,
       comment:
         'Have you ever read an article or book that defined something that you’ve abstractly believed for years? When you read it you let out an affirmative mental “aha!”. I had one of these moments recently when I read Zero to One by Peter Thiel. This book helped shape and better define my investment strategy.',
-      person: {
+      user: {
         name: 'joe',
       },
       book: {
@@ -34,7 +34,7 @@ export default {
         description:
           'The billionaire Silicon Valley entrepreneur behind such companies as PayPal and Facebook outlines an innovative theory and formula for building the companies of the future by creating and monopolizing new markets instead of competing in old ones. 200,000 first printing.',
         rating: 5,
-        thumbnailUrl:
+        imageUrl:
           '//books.google.com/books/content?printsec=frontcover&img=1&edge=curl&source=gbs_api&zoom=1&id=POOJDQAAQBAJ',
       },
     },
@@ -44,7 +44,7 @@ export default {
       rating: 5,
       comment:
         'Zero to One is a refreshing intellectual deep dive into the motives behind entrepreneurship.',
-      person: {
+      user: {
         name: 'knowthen',
       },
       book: {
@@ -53,7 +53,7 @@ export default {
         description:
           'The billionaire Silicon Valley entrepreneur behind such companies as PayPal and Facebook outlines an innovative theory and formula for building the companies of the future by creating and monopolizing new markets instead of competing in old ones. 200,000 first printing.',
         rating: 5,
-        thumbnailUrl:
+        imageUrl:
           '//books.google.com/books/content?printsec=frontcover&img=1&edge=curl&source=gbs_api&zoom=1&id=POOJDQAAQBAJ',
       },
     },
@@ -62,7 +62,7 @@ export default {
       title: 'how good is it?',
       rating: 5,
       comment: 'Worth every penny!',
-      person: {
+      user: {
         name: 'jane',
       },
       book: {
@@ -71,7 +71,7 @@ export default {
         description:
           'Looks at classical design principles and techniques for Web designers using a "reverse-engineering" process, with information on such topics as color, proportion, white space, composition, and typographic etiquette.',
         rating: 4.333333333333333,
-        thumbnailUrl:
+        imageUrl:
           '//books.google.com/books/content?printsec=frontcover&img=1&edge=curl&source=gbs_api&zoom=1&id=9ZNHCElMv9EC',
       },
     },
@@ -81,7 +81,7 @@ export default {
       rating: 4,
       comment:
         'After reading this book, I feel like I have a clue about design!',
-      person: {
+      user: {
         name: 'joe',
       },
       book: {
@@ -90,7 +90,7 @@ export default {
         description:
           'Looks at classical design principles and techniques for Web designers using a "reverse-engineering" process, with information on such topics as color, proportion, white space, composition, and typographic etiquette.',
         rating: 4.333333333333333,
-        thumbnailUrl:
+        imageUrl:
           '//books.google.com/books/content?printsec=frontcover&img=1&edge=curl&source=gbs_api&zoom=1&id=9ZNHCElMv9EC',
       },
     },
@@ -99,7 +99,7 @@ export default {
       title: 'read early',
       rating: 4,
       comment: "I wish that I'd found this book a long time ago",
-      person: {
+      user: {
         name: 'knowthen',
       },
       book: {
@@ -108,7 +108,7 @@ export default {
         description:
           'Looks at classical design principles and techniques for Web designers using a "reverse-engineering" process, with information on such topics as color, proportion, white space, composition, and typographic etiquette.',
         rating: 4.333333333333333,
-        thumbnailUrl:
+        imageUrl:
           '//books.google.com/books/content?printsec=frontcover&img=1&edge=curl&source=gbs_api&zoom=1&id=9ZNHCElMv9EC',
       },
     },
@@ -120,7 +120,7 @@ export default {
       description:
         'The billionaire Silicon Valley entrepreneur behind such companies as PayPal and Facebook outlines an innovative theory and formula for building the companies of the future by creating and monopolizing new markets instead of competing in old ones. 200,000 first printing.',
       rating: 5,
-      thumbnailUrl:
+      imageUrl:
         '//books.google.com/books/content?printsec=frontcover&img=1&edge=curl&source=gbs_api&zoom=0&id=POOJDQAAQBAJ',
       authors: [
         {
@@ -130,6 +130,41 @@ export default {
           name: 'Blake Masters',
         },
       ],
+      reviews: [
+        {
+          title: 'stimulating',
+          rating: 5,
+          comment:
+            'Zero to One is a refreshing intellectual deep dive into the motives behind entrepreneurship.',
+          user: {
+            name: 'knowthen',
+            imageUrl:
+              '//www.gravatar.com/avatar/2a964ae2a7deac996cc96a4a03d36af2?s=50',
+          },
+        },
+        {
+          title: 'words for how I feel',
+          rating: 5,
+          comment:
+            'Have you ever read an article or book that defined something that you’ve abstractly believed for years? When you read it you let out an affirmative mental “aha!”. I had one of these moments recently when I read Zero to One by Peter Thiel. This book helped shape and better define my investment strategy.',
+          user: {
+            name: 'joe',
+            imageUrl:
+              '//www.gravatar.com/avatar/66fb4a60ad325eb5ded7c3e984cb870c?s=50',
+          },
+        },
+        {
+          title: 'Must Read',
+          rating: 5,
+          comment:
+            'A must-read for any entrepreneur who wants to make a difference.',
+          user: {
+            name: 'jane',
+            imageUrl:
+              '//www.gravatar.com/avatar/0092273ac34f8cf86995e46ba9fef42a?s=50',
+          },
+        },
+      ],
     },
     {
       id: '2',
@@ -137,11 +172,44 @@ export default {
       description:
         'Looks at classical design principles and techniques for Web designers using a "reverse-engineering" process, with information on such topics as color, proportion, white space, composition, and typographic etiquette.',
       rating: 4.333333333333333,
-      thumbnailUrl:
+      imageUrl:
         '//books.google.com/books/content?printsec=frontcover&img=1&edge=curl&source=gbs_api&zoom=0&id=9ZNHCElMv9EC',
       authors: [
         {
           name: 'David Kadavy',
+        },
+      ],
+      reviews: [
+        {
+          title: 'read early',
+          rating: 4,
+          comment: "I wish that I'd found this book a long time ago",
+          user: {
+            name: 'knowthen',
+            imageUrl:
+              '//www.gravatar.com/avatar/2a964ae2a7deac996cc96a4a03d36af2?s=50',
+          },
+        },
+        {
+          title: 'not clueless anymore',
+          rating: 4,
+          comment:
+            'After reading this book, I feel like I have a clue about design!',
+          user: {
+            name: 'joe',
+            imageUrl:
+              '//www.gravatar.com/avatar/66fb4a60ad325eb5ded7c3e984cb870c?s=50',
+          },
+        },
+        {
+          title: 'how good is it?',
+          rating: 5,
+          comment: 'Worth every penny!',
+          user: {
+            name: 'jane',
+            imageUrl:
+              '//www.gravatar.com/avatar/0092273ac34f8cf86995e46ba9fef42a?s=50',
+          },
         },
       ],
     },
@@ -149,7 +217,7 @@ export default {
   results: [
     {
       id: 1,
-      thumbnailUrl:
+      imageUrl:
         'http://books.google.com/books/content?id=9ZNHCElMv9EC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api',
       title: 'Design for hackers',
       authors: ['David Kadavy'],

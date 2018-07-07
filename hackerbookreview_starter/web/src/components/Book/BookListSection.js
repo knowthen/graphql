@@ -4,7 +4,7 @@ import BookSummary from './BookSummary';
 import BookSort from './BookSort';
 
 const BookListSection = props => {
-  const { books } = props;
+  const { books = [] } = props;
   return (
     <div className="fl w-70">
       <BookSort {...props} />

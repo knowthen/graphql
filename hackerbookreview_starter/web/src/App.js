@@ -12,7 +12,6 @@ const App = props => (
     <div className="mw8 center avenir">
       <Header {...props} />
       <Switch>
-        {/* <Route exact path="/" render={props => <Home {...props} />} /> */}
         <Route exact path="/" component={Home} />
         <Route exact path="/book/:id/review" component={BookReview} />
         <Route exact path="/book/:id" component={Book} />

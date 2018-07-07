@@ -5,7 +5,7 @@ import { Review } from '../Review';
 import { truncate } from '../../util';
 
 const BookSummary = ({ book }) => {
-  const { id, title, thumbnailUrl, rating, description } = book;
+  const { id, title, imageUrl, rating, description } = book;
   const authors = R.pipe(
     R.pathOr([], ['authors']),
     R.map(R.prop('name')),
@@ -16,7 +16,7 @@ const BookSummary = ({ book }) => {
       <div className="flex mt2">
         <div className="w-20">
           <Link to={`/book/${id}`}>
-            <img alt="book cover" src={thumbnailUrl} />
+            <img alt="book cover" src={imageUrl} />
           </Link>
         </div>
         <div className="w-80 pl2 ">

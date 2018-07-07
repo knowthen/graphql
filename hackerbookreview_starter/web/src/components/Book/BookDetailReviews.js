@@ -6,14 +6,14 @@ import { Review } from '../Review';
 const BookDetailReview = props => {
   const { review } = props;
   if (!review) return null;
-  const { id, title, comment, rating, person = {} } = review;
-  const { imgUrl, name } = person;
+  const { id, title, comment, rating, user = {} } = review;
+  const { imageUrl, name } = user;
 
   return (
     <li name={`comment-${id}`} className="mb3 pb3 bb b--black-10">
       <div>
         <div className="flex items-center mv1">
-          <img className="mr2 br-100" src={imgUrl} alt="profile" />
+          <img className="mr2 br-100" src={imageUrl} alt="profile" />
           <span className="i f4 fw5">{name}</span>
         </div>
         <div className="flex mv1 items-center">

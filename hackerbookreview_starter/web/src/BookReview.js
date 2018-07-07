@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import * as R from 'ramda';
 import * as EmailValidator from 'email-validator';
 import { Book, BookReviewForm } from './components/Book';
+import Error from './components/Error';
 import data from './data';
 
 const findBookById = (id, books) => R.find(R.propEq('id', id), books);
@@ -25,12 +26,18 @@ class BookReview extends Component {
     },
     redirect: false,
     inputValid: false,
+    errors: [],
   };
   async componentDidMount() {
     const id = R.path(['props', 'match', 'params', 'id'], this);
-    // TODO: fetch actual book using graphql
-    const book = findBookById(id, data.books);
-    this.setState({ book });
+    try {
+      // TODO: fetch actual book using graphql
+      const book = findBookById(id, data.books);
+      const errors = [];
+      this.setState({ book, errors });
+    } catch (err) {
+      this.setState({ errors: [err.message] });
+    }
   }
   handleChange = R.curry((field, value) => {
     const { reviewInput } = this.state;
@@ -40,18 +47,15 @@ class BookReview extends Component {
   });
   handleSubmit = async e => {
     e.preventDefault();
-    const { book } = this.state;
     // eslint-disable-next-line
-    const reviewInput = R.pipe(
-      R.pathOr({}, ['reviewInput']),
-      input => {
-        const { name, count, email, title, comment } = input;
-        return { name, email, title, comment, rating: count };
-      },
-      R.merge(R.__, { bookId: book.id }),
-    )(this.state);
+    const { book, reviewInput } = this.state;
+    // eslint-disable-next-line
+    const { name, count, email, title, comment } = reviewInput;
     // TODO: add actual mutation to add new review
-    // this.setState({ redirect: !!id });
+    try {
+      const errors = [];
+      this.setState({ redirect: true, errors });
+    } catch (err) {}
   };
   render() {
     const { book, reviewInput, inputValid, redirect } = this.state;
@@ -59,6 +63,7 @@ class BookReview extends Component {
     return (
       <div className="cf black-80 mv2">
         {redirect && <Redirect to={`/book/${book.id}`} />}
+        <Error errors={this.state.errors} />
         <h1 className="fw4 mt2 mb3 f2">Review</h1>
         <Book book={book} />
         <BookReviewForm
