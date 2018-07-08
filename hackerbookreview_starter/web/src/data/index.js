@@ -132,6 +132,7 @@ export default {
       ],
       reviews: [
         {
+          id: '1',
           title: 'stimulating',
           rating: 5,
           comment:
@@ -143,6 +144,7 @@ export default {
           },
         },
         {
+          id: '2',
           title: 'words for how I feel',
           rating: 5,
           comment:
@@ -154,6 +156,7 @@ export default {
           },
         },
         {
+          id: '3',
           title: 'Must Read',
           rating: 5,
           comment:
@@ -181,6 +184,7 @@ export default {
       ],
       reviews: [
         {
+          id: '4',
           title: 'read early',
           rating: 4,
           comment: "I wish that I'd found this book a long time ago",
@@ -191,6 +195,7 @@ export default {
           },
         },
         {
+          id: '5',
           title: 'not clueless anymore',
           rating: 4,
           comment:
@@ -202,6 +207,7 @@ export default {
           },
         },
         {
+          id: '6',
           title: 'how good is it?',
           rating: 5,
           comment: 'Worth every penny!',
