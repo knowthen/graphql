@@ -80,7 +80,8 @@ comment on column hb.user.created_at is 'The time this user was created.';
 
 create table hb.review(
   id                serial primary key,
-  user_id         int not null references hb.user(id),
+  user_id           int not null references hb.user(id),
+  book_id           int not null references hb.book(id),
   rating            int not null check(rating >= 1 and rating <= 5),
   title             text,
   comment           text,
@@ -89,29 +90,17 @@ create table hb.review(
 );
 
 create index review_user_id_idx on hb.review(user_id);
+create index review_book_id_idx on hb.review(book_id);
 create index review_tokens_idx on hb.review using gin(tokens);
 
 comment on table hb.review is 'A book review.';
 comment on column hb.review.user_id is 'The id of the user doing the review';
+comment on column hb.review.book_id is 'The id of the book being reviewed.';
 comment on column hb.review.rating is 'The number of stars given 1-5';
 comment on column hb.review.title is 'The review title left by the user';
 comment on column hb.review.comment is 'The review comment left by the user';
 comment on column hb.review.tokens is 'tokens for full text search';
 comment on column hb.review.created_at is 'The time this review was created.';
-
-create table hb.book_review(
-  id                serial primary key,
-  book_id           int not null references hb.book(id),
-  review_id         int not null references hb.review(id)
-);
-
-create index book_review_book_id_idx on hb.book_review(book_id);
-create index book_review_review_id_idx on hb.book_review(review_id);
-
-comment on table hb.book_review is 'A book_review.';
-comment on column hb.book_review.id is 'The primary unique identifier for the book review.';
-comment on column hb.book_review.book_id is 'The id of the book being reviewed';
-comment on column hb.book_review.review_id is 'The id of the book review';
 
 create function hb.create_book(
   google_book_id        text,
@@ -175,12 +164,10 @@ begin
 
   select id into user_id from hb.user where email = reviewer_email;  
   tokens := to_tsvector(coalesce(title, '') || coalesce(comment, ''));
-  insert into hb.review(user_id, rating, title, comment, tokens) 
-    values(user_id, new_rating, title, comment, tokens) 
+  insert into hb.review(user_id, book_id, rating, title, comment, tokens) 
+    values(user_id, book_id, new_rating, title, comment, tokens) 
     returning * into review;
 
-  insert into hb.book_review(book_id, review_id)
-    values(book_id, review.id);
 
   update hb.book set 
     rating_total = rating_total + new_rating, 
