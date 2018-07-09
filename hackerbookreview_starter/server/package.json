@@ -5,12 +5,12 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon ./src/server.js --watch . --exec babel-node",
-    "createdb": "createdb hackerbook",
-    "dropdb": "dropdb hackerbook",
-    "createschema": "psql postgres://localhost:5432/hackerbook -f ./database/schema.sql",
-    "dropschema": "psql postgres://localhost:5432/hackerbook -f ./database/drop_schema.sql",
-    "loaddata": "psql postgres://localhost:5432/hackerbook -f ./database/load_data.sql",
-    "initdb": "npm run createdb && npm run createschema && npm run loaddata"
+    "initdb": "npm run createdb && npm run createschema && npm run loaddata",
+    "createdb": "cross-env psql postgres://localhost:5432/postgres -f ./database/create_db.sql",
+    "createschema": "cross-env psql postgres://localhost:5432/hackerbook -f ./database/schema.sql",
+    "loaddata": "cross-env psql postgres://localhost:5432/hackerbook -f ./database/load_data.sql",
+    "dropdb": "cross-env psql postgres://localhost:5432/postgres -f ./database/drop_db.sql",
+    "dropschema": "cross-env psql postgres://localhost:5432/hackerbook -f ./database/drop_schema.sql"
   },
   "keywords": [],
   "author": "James Moore",
@@ -33,6 +33,7 @@
     "striptags": "^3.1.1"
   },
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "nodemon": "1.17.3",
     "babel-cli": "^6.26.0",
     "babel-core": "6.26.0",
