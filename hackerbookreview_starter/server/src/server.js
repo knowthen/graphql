@@ -4,31 +4,8 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import { makeExecutableSchema } from 'graphql-tools';
 import { graphql } from 'graphql';
-
-const typeDefs = `
-schema {
-  query: Query
-}
-# root query for our **Hello World Server**
-type Query {
-  # Says hello *world*
-  hello: String
-  """
-  About names:
-
-  1. Naming is [hard](https://bit.ly/2m5uhil)
-  1. Everyone messes them up
-  """
-  name: String
-}
-`;
-
-const resolvers = {
-  Query: {
-    hello: () => 'World',
-    name: () => 'James',
-  },
-};
+import typeDefs from './typedefs';
+import resolvers from './resolvers';
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 
