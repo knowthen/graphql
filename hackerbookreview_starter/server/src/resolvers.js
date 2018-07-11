@@ -1,8 +1,8 @@
-import { allBooks } from './book';
+import { allBooks, imageUrl } from './book';
 
 const resolvers = {
   Book: {
-    
+    imageUrl: (book, { size }) => imageUrl(size, book.googleId),
   },
   Query: {
     books: () => {
