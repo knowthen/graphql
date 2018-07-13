@@ -13,6 +13,12 @@ type Book {
   rating: Float
   subtitle: String
   ratingCount: Int
+  authors: [Author]
+}
+
+type Author {
+  id: ID!
+  name: String
 }
 
 enum ImageSize {
