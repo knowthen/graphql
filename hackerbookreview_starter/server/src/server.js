@@ -6,6 +6,7 @@ import { makeExecutableSchema } from 'graphql-tools';
 import { graphql } from 'graphql';
 import typeDefs from './typedefs';
 import resolvers from './resolvers';
+import loaders from './loader';
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 
@@ -13,7 +14,15 @@ const app = express();
 
 app.use(cors());
 
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
+app.use('/graphql', 
+  bodyParser.json(), 
+  graphqlExpress(() => ({ 
+    schema,
+    context: {
+      loaders: loaders()
+    }
+  }))
+);
 
 app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
