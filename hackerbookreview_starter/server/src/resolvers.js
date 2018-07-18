@@ -1,5 +1,6 @@
 import { allBooks, imageUrl } from './book';
 import { authorsByBookId } from './author';
+import { allReviews } from './review';
  
 const resolvers = {
   Book: {
@@ -14,6 +15,7 @@ const resolvers = {
     books: () => {
       return allBooks();
     },
+    reviews: () => allReviews(),
   },
 };
 
