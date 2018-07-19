@@ -11,6 +11,7 @@ type Review {
   rating: Int
   title: String
   comment: String
+  book: Book
 }
 type Book {
   id: ID!
