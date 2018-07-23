@@ -12,6 +12,11 @@ type Review {
   title: String
   comment: String
   book: Book
+  user: User
+}
+type User {
+  id: ID!
+  name: String  
 }
 type Book {
   id: ID!

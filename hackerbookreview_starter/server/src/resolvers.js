@@ -16,8 +16,12 @@ const resolvers = {
       const { loaders } = context;
       const { findBooksByIdsLoader } = loaders;
       return findBooksByIdsLoader.load(review.bookId);
-      // findBookById(review.bookId)
-    }
+    },
+    user: (review, args, context) => {
+      const { loaders } = context;
+      const { findUsersByIdsLoader } = loaders;
+      return findUsersByIdsLoader.load(review.userId);
+    },
   }, 
   Query: {
     books: () => {
