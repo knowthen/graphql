@@ -24,8 +24,8 @@ const resolvers = {
     },
   }, 
   Query: {
-    books: () => {
-      return allBooks();
+    books: (root , args) => {
+      return allBooks(args);
     },
     reviews: () => allReviews(),
   },
