@@ -3,7 +3,7 @@ schema {
   query: Query
 }
 type Query {
-  books(orderBy: BooksOrderBy = ID_DESC): [Book]
+  books(orderBy: BooksOrderBy = RATING_DESC): [Book]
   reviews(orderBy: ReviewsOrderBy = ID_DESC): [Review]
 }
 enum ReviewsOrderBy {
