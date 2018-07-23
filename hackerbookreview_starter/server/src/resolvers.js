@@ -1,7 +1,7 @@
 import { allBooks, imageUrl, findBookById } from './book';
 import { authorsByBookId } from './author';
 import { allReviews } from './review';
- 
+
 const resolvers = {
   Book: {
     imageUrl: (book, { size }) => imageUrl(size, book.googleId),
@@ -22,12 +22,14 @@ const resolvers = {
       const { findUsersByIdsLoader } = loaders;
       return findUsersByIdsLoader.load(review.userId);
     },
-  }, 
+  },
   Query: {
-    books: (root , args) => {
+    books: (root, args) => {
       return allBooks(args);
     },
-    reviews: () => allReviews(),
+    reviews: (root, args) => {
+      return allReviews(args);
+    },
   },
 };
 
