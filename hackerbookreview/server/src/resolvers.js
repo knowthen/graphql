@@ -30,6 +30,11 @@ const resolvers = {
     reviews: (root, args) => {
       return allReviews(args);
     },
+    book: (root, args, context) => {
+      const { loaders } = context;
+      const { findBooksByIdsLoader } = loaders;
+      return findBooksByIdsLoader.load(args.id);
+    }
   },
 };
 
