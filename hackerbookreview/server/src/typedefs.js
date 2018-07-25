@@ -25,7 +25,8 @@ type Review {
 }
 type User {
   id: ID!
-  name: String  
+  name: String
+  imageUrl(size: Int = 50): String
 }
 type Book {
   id: ID!
@@ -36,6 +37,7 @@ type Book {
   subtitle: String
   ratingCount: Int
   authors: [Author]
+  reviews: [Review]
 }
 
 type Author {
