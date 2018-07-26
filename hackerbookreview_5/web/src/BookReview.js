@@ -55,7 +55,9 @@ class BookReview extends Component {
     try {
       const errors = [];
       this.setState({ redirect: true, errors });
-    } catch (err) {}
+    } catch (err) {
+      this.setState({ errors: [err.message] });
+    }
   };
   render() {
     const { book, reviewInput, inputValid, redirect } = this.state;
