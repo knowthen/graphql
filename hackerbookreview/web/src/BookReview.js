@@ -5,8 +5,28 @@ import * as EmailValidator from 'email-validator';
 import { Book, BookReviewForm } from './components/Book';
 import Error from './components/Error';
 import data from './data';
+import fetch from './fetch';
 
 const findBookById = (id, books) => R.find(R.propEq('id', id), books);
+
+const query = `
+fragment Book on Book {
+  id
+  title
+  description
+  imageUrl
+  rating
+}
+
+query Book($id: ID!) {
+  book(id: $id){
+    ...Book
+    authors{
+      name
+    }
+  }
+}
+`;
 
 const isInputValid = reviewInput => {
   const { count, name, email } = reviewInput;
@@ -32,8 +52,11 @@ class BookReview extends Component {
     const id = R.path(['props', 'match', 'params', 'id'], this);
     try {
       // TODO: fetch actual book using graphql
-      const book = findBookById(id, data.books);
-      const errors = [];
+      const variables = { id };
+      const result = await fetch({ query, variables });
+      const book = R.path(['data', 'book'], result);
+      const errorList = R.pathOr([], ['errors'], result);
+      const errors = R.map(error => error.message, errorList);
       this.setState({ book, errors });
     } catch (err) {
       this.setState({ errors: [err.message] });
@@ -55,7 +78,9 @@ class BookReview extends Component {
     try {
       const errors = [];
       this.setState({ redirect: true, errors });
-    } catch (err) {}
+    } catch (err) {
+      this.setState({ errors: [err.message] });
+    }
   };
   render() {
     const { book, reviewInput, inputValid, redirect } = this.state;
