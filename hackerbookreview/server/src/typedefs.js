@@ -7,6 +7,14 @@ type Query {
   books(orderBy: BooksOrderBy = RATING_DESC): [Book]
   reviews(orderBy: ReviewsOrderBy = ID_DESC): [Review]
   book(id: ID!): Book
+  searchBook(query: String!): [SearchBookResult]
+}
+type SearchBookResult {
+  id: ID!
+  title: String
+  description: String
+  authors: [String]
+  imageUrl(size: ImageSize = LARGE): String
 }
 type Mutation {
   createReview(reviewInput: ReviewInput!): Review
