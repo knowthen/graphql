@@ -1,5 +1,11 @@
 import gravatar from 'gravatar';
-import { allBooks, imageUrl, findBookById, searchBook } from './book';
+import { 
+  allBooks, 
+  imageUrl, 
+  findBookById, 
+  searchBook,
+  createBook
+ } from './book';
 import { authorsByBookId } from './author';
 import { allReviews, createReview } from './review'; 
 
@@ -56,6 +62,10 @@ const resolvers = {
     createReview: (root, args) => {
       const { reviewInput } = args;
       return createReview(reviewInput);
+    },
+    createBook: (root, args) => {
+      const { googleBookId } = args;
+      return createBook(googleBookId);
     }
   }
 };
