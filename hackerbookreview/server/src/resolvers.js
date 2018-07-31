@@ -8,6 +8,7 @@ import {
  } from './book';
 import { authorsByBookId } from './author';
 import { allReviews, createReview } from './review'; 
+import { search } from './search'; 
 
 const resolvers = {
   User: {
@@ -15,6 +16,9 @@ const resolvers = {
   },
   SearchBookResult: {
     imageUrl: (result, args) => imageUrl(args.size, result.id),
+  },
+  SearchResult: {
+    __resolveType: obj => obj.__type,
   },
   Book: {
     imageUrl: (book, { size }) => imageUrl(size, book.googleId),
@@ -57,6 +61,10 @@ const resolvers = {
       const { query } = args;
       return searchBook(query);
     },
+    search: (root, args) => {
+      const { query } = args;
+      return search(query);
+    }
   },
   Mutation: {
     createReview: (root, args) => {
