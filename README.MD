@@ -107,7 +107,7 @@ In the first part of the course, we’ll focus on learning the _Query Language_,
 
 In the second part of the course, we’ll focus on building a _GraphQL server_, for the courses project app Hacker Book Review (see below).
 
-We’ll build the server with [Node.js](https://nodejs.org) and [PostgreSQL](https://www.postgresql.org/), and we’ll use excellent and popular open source GraphQL libraries.
+We’ll build the server with [Node.js](https://nodejs.org) and [PostgreSQL (version >= 9.5)](https://www.postgresql.org/), and we’ll use excellent and popular open source GraphQL libraries.
 
 **What are the pre-requisites for taking this course?**
 
