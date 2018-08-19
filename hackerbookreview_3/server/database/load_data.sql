@@ -1,4 +1,7 @@
 begin;
+
+SET CLIENT_ENCODING TO 'utf8';
+
 insert into hb.author(id, name) values
   (1, 'David Kadavy'),
   (2, 'Peter Thiel'),

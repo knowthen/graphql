@@ -6,11 +6,11 @@
   "scripts": {
     "dev": "nodemon ./src/server.js --watch . --exec babel-node",
     "initdb": "npm run createdb && npm run createschema && npm run loaddata",
-    "createdb": "cross-env psql postgres://localhost:5432/postgres -f ./database/create_db.sql",
-    "createschema": "cross-env psql postgres://localhost:5432/hackerbook -f ./database/schema.sql",
-    "loaddata": "cross-env psql postgres://localhost:5432/hackerbook -f ./database/load_data.sql",
-    "dropdb": "cross-env psql postgres://localhost:5432/postgres -f ./database/drop_db.sql",
-    "dropschema": "cross-env psql postgres://localhost:5432/hackerbook -f ./database/drop_schema.sql"
+    "createdb": "cross-env psql -f ./database/create_db.sql postgres://localhost:5432/postgres",
+    "createschema": "cross-env psql -f ./database/schema.sql postgres://localhost:5432/hackerbook",
+    "loaddata": "cross-env psql -f ./database/load_data.sql postgres://localhost:5432/hackerbook",
+    "dropdb": "cross-env psql -f ./database/drop_db.sql postgres://localhost:5432/postgres",
+    "dropschema": "cross-env psql -f ./database/drop_schema.sql postgres://localhost:5432/hackerbook"
   },
   "keywords": [],
   "author": "James Moore",
